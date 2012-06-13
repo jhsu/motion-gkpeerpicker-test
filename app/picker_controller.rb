@@ -1,17 +1,12 @@
 class PickerController < UIViewController
   def viewDidAppear(animated)
+    session = GKSession.alloc.initWithSessionID("connect", displayName: nil, sessionMode: GKSessionModePeer)
+    session.delegate = self
+    session.available = true
     @picker = GKPeerPickerController.alloc.init
     @picker.delegate = self
-    @session = GKSession.alloc.initWithSessionID("connect", displayName: nil, sessionMode: GKSessionModePeer)
-    @session.delegate = self
-    @session.available = true
     @picker.show
-  end
-
-  # GKPeerPickerController
-
-
-  def didSelectConnectionType(type)
+    alert("ZOMG")
   end
 
   # GKPeerPickerControllerDelegate
@@ -33,4 +28,13 @@ class PickerController < UIViewController
   # didReceiveConnectionRequestFromPeer:
   # connectionWithPeerFailed:withError:
   # didFailWithError:
+
+  def alert(msg)
+    dialog = UIAlertView.alloc.initWithTitle("GK", message: msg, delegate:nil, cancelButtonTitle: "OK", otherButtonTitles:nil)
+    dialog.show
+  end
+
+  def didReceiveConnectionRequestFromPeer(peerID)
+    alert("ZOMG")
+  end
 end
