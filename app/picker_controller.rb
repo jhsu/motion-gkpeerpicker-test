@@ -36,7 +36,7 @@ class PickerController < UIViewController
       alert("available")
     when GKPeerStateUnavailable
     when GKPeerStateConnected
-      alert(session.displayNameForPeer(peer))
+      alert("peer: #{session.displayNameForPeer(peer)}")
     when GKPeerStateDisconnected
     when GKPeerStateConnecting
       alert("connecting")
