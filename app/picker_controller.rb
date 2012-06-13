@@ -62,8 +62,6 @@ class PickerController < UIViewController
   protected
 
   def alert(msg)
-    # dialog = UIAlertView.alloc.initWithTitle("GK", message: msg, delegate:nil, cancelButtonTitle: "OK", otherButtonTitles:nil)
-    # dialog.show
     NSLog(msg)
   end
 end
